@@ -34,7 +34,7 @@
                         <td>
                             <a class="btn btn-success" href="{{ route('contacts.show', $contact->id) }}">View</a>
                             <a class="btn btn-warning" href="{{ route('contacts.edit', $contact->id) }}">Edit</a>
-                            <form class="d-inline-block" {{ route('contacts.destroy', $contact->id) }}" method="POST">
+                            <form class="d-inline-block" action="{{ route('contacts.destroy', $contact->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Delete</button>
