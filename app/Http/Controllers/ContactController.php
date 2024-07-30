@@ -12,20 +12,17 @@ class ContactController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Contact::query();
+        $list = Contact::query();
 
         if ($request->has('search')) {
-            $query->where('name', 'like', '%' . $request->search . '%')
+            $list->where('name', 'like', '%' . $request->search . '%')
                 ->orWhere('email', 'like', '%' . $request->search . '%');
         }
 
-        if ($request->has('sort')) {
-            $query->orderBy($request->sort);
-        } else {
-            $query->orderBy('created_at', 'desc');
-        }
+        $sort = $request->input('sort', 'created_at');
+        $list->orderBy($sort, 'desc');
 
-        $contacts = $query->get();
+        $contacts = $list->get();
         return view('contacts.index', compact('contacts'));
     }
 
