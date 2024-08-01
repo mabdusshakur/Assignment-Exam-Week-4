@@ -19,7 +19,7 @@
                 <label for="address">Address</label>
                 <input class="form-control" name="address" type="text">
             </div>
-            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-primary mt-2" type="submit">Save</button>
         </form>
     </div>
 </x-layout>

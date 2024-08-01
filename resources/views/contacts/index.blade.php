@@ -12,14 +12,14 @@
             </div>
         </form>
     </div>
-    <table class="table-bordered table">
+    <table class="table-bordered table-striped table">
         <thead>
             <tr>
-                <th><a href="{{ route('contacts.index', ['sort' => 'name']) }}">Name</a></th>
+                <th><a href="{{ route('contacts.index', ['sort' => 'name', 'toggleOption' => $toggledSortOption]) }}">Name</a></th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Address</th>
-                <th><a href="{{ route('contacts.index', ['sort' => 'created_at']) }}">Created at</a></th>
+                <th><a href="{{ route('contacts.index', ['sort' => 'created_at', 'toggleOption' => $toggledSortOption]) }}">Created at</a></th>
                 <th>Action</th>
             </tr>
         </thead>

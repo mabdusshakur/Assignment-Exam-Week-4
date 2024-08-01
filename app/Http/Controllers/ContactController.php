@@ -15,15 +15,15 @@ class ContactController extends Controller
         $list = Contact::query();
 
         if ($request->has('search')) {
-            $list->where('name', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%');
+            $list->where('name', 'like', '%' . $request->search . '%')->orWhere('email', 'like', '%' . $request->search . '%');
         }
 
         $sort = $request->input('sort', 'created_at');
-        $list->orderBy($sort, 'desc');
+        $toggleOption = $request->input('toggleOption', 'ASC');
+        $toggledSortOption = $toggleOption === 'ASC' ? 'DESC' : 'ASC';
+        $contacts = $list->orderBy($sort, $toggleOption)->get();
 
-        $contacts = $list->get();
-        return view('contacts.index', compact('contacts'));
+        return view('contacts.index', compact('contacts', 'sort', 'toggledSortOption'));
     }
 
     /**

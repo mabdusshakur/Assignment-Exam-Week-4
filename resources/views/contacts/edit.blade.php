@@ -20,7 +20,7 @@
                 <label for="address">Address : </label>
                 <input class="form-control" name="address" type="text" value="{{ $contact->address }}">
             </div>
-            <button class="btn btn-warning" type="submit">Update</button>
+            <button class="btn btn-warning mt-2" type="submit">Update</button>
         </form>
     </div>
 </x-layout>
